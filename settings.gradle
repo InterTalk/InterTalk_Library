@@ -1,0 +1,2 @@
+include ':app', ':http', ':ui'
+rootProject.name='InterTalk_Library'

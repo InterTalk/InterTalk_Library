@@ -1,0 +1,33 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion parent.ext.compileSdkVersion
+
+
+    defaultConfig {
+        minSdkVersion parent.ext.minSdkVersion
+        targetSdkVersion parent.ext.targetSdkVersion
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api "com.android.support:recyclerview-v7:$supportVersion"
+    api "com.android.support:appcompat-v7:$supportVersion"
+    api "com.android.support:design:$supportVersion"
+    api "com.android.support:support-vector-drawable:$supportVersion"
+    api "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
+
+    testImplementation 'junit:junit:4.12'
+}
