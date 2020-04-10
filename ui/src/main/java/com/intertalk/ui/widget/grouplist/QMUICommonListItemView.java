@@ -214,7 +214,16 @@ public class QMUICommonListItemView extends RelativeLayout {
         }
     }
 
+    public void showExplainImageView(boolean isShow){
+        if(isShow){
+            mExplainImageView.setVisibility(View.VISIBLE);
+        }else {
+            mExplainImageView.setVisibility(View.GONE);
+        }
+    }
+
     public void setExplainOnClickListener(OnClickListener clickListener) {
+        mExplainImageView.setVisibility(View.VISIBLE);
         mExplainImageView.setOnClickListener(clickListener);
     }
 
