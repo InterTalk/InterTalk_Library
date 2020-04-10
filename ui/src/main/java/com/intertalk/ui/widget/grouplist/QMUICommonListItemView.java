@@ -130,6 +130,7 @@ public class QMUICommonListItemView extends RelativeLayout {
 
 
     protected ImageView mImageView;
+    protected ImageView mExplainImageView;
     private ViewGroup mAccessoryView;
     protected LinearLayout mTextContainer;
     protected TextView mTextView;
@@ -164,6 +165,7 @@ public class QMUICommonListItemView extends RelativeLayout {
         array.recycle();
 
         mImageView = (ImageView) findViewById(R.id.group_list_item_imageView);
+        mExplainImageView = (ImageView) findViewById(R.id.group_list_item_explain_imageView);
         mTextContainer = (LinearLayout) findViewById(R.id.group_list_item_textContainer);
         mTextView = (TextView) findViewById(R.id.group_list_item_textView);
         mTextView.setTextColor(initTitleColor);
@@ -201,6 +203,19 @@ public class QMUICommonListItemView extends RelativeLayout {
             mImageView.setImageDrawable(drawable);
             mImageView.setVisibility(View.VISIBLE);
         }
+    }
+
+    public void setExplainImageDrawable(Drawable drawable) {
+        if (drawable == null) {
+            mExplainImageView.setVisibility(View.GONE);
+        } else {
+            mExplainImageView.setImageDrawable(drawable);
+            mExplainImageView.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public void setExplainOnClickListener(OnClickListener clickListener) {
+        mExplainImageView.setOnClickListener(clickListener);
     }
 
     public void setRedDotPosition(@QMUICommonListItemRedDotPosition int redDotPosition) {

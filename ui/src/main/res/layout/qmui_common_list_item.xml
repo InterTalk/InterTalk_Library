@@ -60,6 +60,17 @@
             android:textColor="?attr/qmui_config_color_gray_1"
             android:textSize="?attr/qmui_common_list_item_title_h_text_size"/>
 
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/group_list_item_explain_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/help_explain_icon"
+            android:padding="5dp"
+            android:contentDescription="@null"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:visibility="gone"/>
+
         <android.support.v4.widget.Space
             android:id="@+id/group_list_item_space"
             android:layout_width="0dp"
