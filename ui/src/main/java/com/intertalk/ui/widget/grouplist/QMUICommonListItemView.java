@@ -205,13 +205,9 @@ public class QMUICommonListItemView extends RelativeLayout {
         }
     }
 
-    public void setExplainImageDrawable(Drawable drawable) {
-        if (drawable == null) {
-            mExplainImageView.setVisibility(View.GONE);
-        } else {
-            mExplainImageView.setImageDrawable(drawable);
-            mExplainImageView.setVisibility(View.VISIBLE);
-        }
+    public void setExplainImageRes(int imgRes) {
+        mExplainImageView.setImageResource(imgRes);
+        mExplainImageView.setVisibility(View.VISIBLE);
     }
 
     public void showExplainImageView(boolean isShow){
