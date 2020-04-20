@@ -1,6 +1,7 @@
 package com.intertalk.library;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,8 @@ import com.intertalk.http.cookie.store.SPCookieStore;
 import com.intertalk.http.interceptor.HttpLoggingInterceptor;
 import com.intertalk.http.model.Response;
 import com.intertalk.ui.widget.dialog.QMUIDialog;
+import com.intertalk.ui.widget.grouplist.QMUICommonListItemView;
+import com.intertalk.ui.widget.grouplist.QMUIGroupListView;
 
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         mContext = this;
 
         initOkGo();
+        initView();
 
         Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +66,27 @@ public class MainActivity extends AppCompatActivity {
                         .show();
             }
         });
+    }
+
+    private void initView(){
+        QMUIGroupListView mQMUIGroupListView = findViewById(R.id.groupListView);
+
+        QMUIGroupListView.Section sectionStore = QMUIGroupListView.newSection(mContext).setTitle("店铺");
+
+        for (int i = 0; i < 10; i++) {
+            QMUICommonListItemView itemMyStore = mQMUIGroupListView.createItemView("测试标题" + i);
+            itemMyStore.setAccessoryType(QMUICommonListItemView.ACCESSORY_TYPE_CHEVRON);
+            itemMyStore.setExplainOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                }
+            });
+            itemMyStore.setDetailText("我的店铺" + i);
+            sectionStore.addItemView(itemMyStore, null);
+        }
+
+        sectionStore.addTo(mQMUIGroupListView);
     }
 
     private void initOkGo(){
