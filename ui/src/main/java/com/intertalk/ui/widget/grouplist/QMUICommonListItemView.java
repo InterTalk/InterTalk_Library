@@ -205,6 +205,10 @@ public class QMUICommonListItemView extends RelativeLayout {
         }
     }
 
+    public ImageView getExplainImageView(){
+        return mExplainImageView;
+    }
+
     public void setExplainImageRes(int imgRes) {
         mExplainImageView.setImageResource(imgRes);
         mExplainImageView.setVisibility(View.VISIBLE);
